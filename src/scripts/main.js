@@ -1,6 +1,6 @@
 'use strict';
 
-const listOfEmployees = [...document.querySelectorAll(`li`)];
+const listOfEmployees = [...document.querySelectorAll(`ul li`)];
 
 function convertToNumber(item) {
   return Number(item.dataset.salary.replace('$', '').replace(/,/g, ''));
@@ -30,7 +30,7 @@ function getEmployees(list) {
   return Array.from(list.children).map((item) => ({
     name: item.textContent.trim(),
     position: item.dataset.position,
-    salary: convertToNumber(item.dataset.salary),
+    salary: convertToNumber(item),
     age: Number(item.dataset.age),
   }));
 }
